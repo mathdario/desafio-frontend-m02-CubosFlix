@@ -110,7 +110,7 @@ const highlight = () => {
     .then((response) => response.json())
     .then((body) => {
       const highlight__video = document.querySelector(".highlight__video");
-      highlight__video.style.backgroundImage = `url(${body.backdrop_path})`;
+      highlight__video.style.background = `linear-gradient(rgba(0, 0, 0, 0.6) 100%, rgba(0, 0, 0, 0.6) 100%), url('${body.backdrop_path}') no-repeat center / cover`;
       highlight__video.classList.add("highlight__video");
 
       const highlight__title = document.querySelector(".highlight__title");
@@ -118,7 +118,7 @@ const highlight = () => {
       highlight__title.classList.add("highlight__title");
 
       const highlight__rating = document.querySelector(".highlight__rating");
-      highlight__rating.textContent = body.vote_average;
+      highlight__rating.textContent = body.vote_average.toFixed(1);
       highlight__rating.classList.add("highlight__rating");
 
       const highlight__genres = document.querySelector(".highlight__genres");
